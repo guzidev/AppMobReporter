@@ -17,10 +17,40 @@ angular.module('citizen-engagement.controllers', [])
         method: 'GET',
         url: apiUrl + '/issues',
         headers: {
+            'x-pagination': '0;20'
+        }
+    })
+    .success(function(issues) {
+        $scope.issues = issues;
+    });
+})
+
+.controller('UsersCtrl', function($scope, $http, apiUrl) {
+    $scope.issues = {};
+    $http({
+        method: 'GET',
+        url: apiUrl + '/users',
+        headers: {
+            'x-pagination': '0;10'
+        }
+    })
+    .success(function(issues) {
+        $scope.issues = issues;
+    });
+})
+
+.controller('IssuesCtrl', function($scope, $http, apiUrl) {
+    $scope.issues = {};
+    $http({
+        method: 'GET',
+        url: apiUrl + '/issues',
+        headers: {
             'x-pagination': '0;100'
         }
     })
     .success(function(issues) {
         $scope.issues = issues;
     });
-});
+})
+
+;
