@@ -10,6 +10,13 @@
         <li class="item">third</li>
 
     </ul>
-
+    
+    <ion-list ng-controller="UserController">
+        <ion-item ng-repeat="user in data">
+            {{ user.firstName }} {{ user.lastName }}
+        </ion-item>
+        
+    </ion-list>
+    
   </ion-content>
 </ion-view>
