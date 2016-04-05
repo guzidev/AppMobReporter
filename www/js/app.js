@@ -72,6 +72,16 @@ angular.module('citizen-engagement', ['ionic', 'citizen-engagement.auth', 'citiz
         }
       }
     })
+
+    // This is the  state for My Issues.
+    .state('tab.myIssues', {
+      url: '/myIssues',
+      views: {
+        'tab-myIssues': {
+          templateUrl: 'templates/myIssues.html'
+        }
+      }
+    })
   ;
 
   // Define the default state (i.e. the first screen displayed when the app opens).

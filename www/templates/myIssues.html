@@ -1,0 +1,27 @@
+<ion-view view-title="My Issues">
+
+	
+  	<ion-content ng-controller="MyCtrl">
+      <div class="list">
+
+        <a ng-repeat="item in items" 
+
+           href="#/{{item.id}}"
+           class="item item-thumbnail-left">
+
+          <img ng-src="{{ item.image }}">
+          <h2>{{ item.titre }}</h2>
+          <h4>{{ item.description }}</h4>
+          <h4>{{ item.author }}</h4>
+          <h4>{{ item.date_creation }}</h4>
+        </a>
+      </div>
+    </ion-content>
+
+
+</ion-view>
+
+<!-- http://codepen.io/ionic/pen/isfAJ-->
+
+
+
