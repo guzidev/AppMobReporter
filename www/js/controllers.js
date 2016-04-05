@@ -31,7 +31,8 @@ angular.module('citizen-engagement.controllers', [])
         method: 'GET',
         url: apiUrl + '/users',
         headers: {
-            'x-pagination': '0;10'
+            'x-pagination': '0;10',
+            'x-user-id': AuthService.currentUserId,
         }
     })
     .success(function(issues) {
