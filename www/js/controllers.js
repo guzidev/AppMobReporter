@@ -1,6 +1,6 @@
 angular.module('citizen-engagement.controllers', [])
 
-        .controller('UserController', function($scope) {
+        .controller('UserController', function($scope, $http) {
            $scope.data = [
 			{ firstName: "John", lastName: "Doe" },
 			{ firstName: "John", lastName: "Smith" },
@@ -8,7 +8,6 @@ angular.module('citizen-engagement.controllers', [])
 			{ firstName: "Mark", lastName: "Holloway" }
 		]; 
 })
-
 
 .controller('MyCtrl', function($scope) {
   // don't be scared by the image value, its just datauri
@@ -43,4 +42,17 @@ angular.module('citizen-engagement.controllers', [])
 
   ];
   
+
+.controller('IssuesCtrl', function($scope, $http, apiUrl) {
+    $scope.issues = {};
+    $http({
+        method: 'GET',
+        url: apiUrl + '/issues',
+        headers: {
+            'x-pagination': '0;100'
+        }
+    })
+    .success(function(issues) {
+        $scope.issues = issues;
+    });
 });
