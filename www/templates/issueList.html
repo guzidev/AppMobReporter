@@ -1,10 +1,25 @@
 <ion-view view-title="Issue List">
   <ion-content ng-controller="IssuesCtrl">
     <p>Hello! This is the issue list screen.</p>
+    <!-- Test "search" button -->
     <label class="item item-input">
           <input type="text" placeholder="Issue Type" ng-model="issueType.id" required="required"/>
         </label>
     <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
+    
+    <!-- Test "multiple search" field -->
+    <ui-select multiple ng-model="issueType.id" ng-disabled="ctrl.disabled" sortable="true" close-on-select="false">
+    <ui-select-match placeholder="Select issue...">{{ $item.name }} &lt;{{ $item.description }}&gt;</ui-select-match>
+    <ui-select-choices repeat="issue in issues | propsFilter: {name: $select.search, description: $select.search}">
+      <div ng-bind-html="issue.issueType.name | highlight: $select.search"></div>
+      <small>
+        name: {{ issue.name}}
+        description: <span ng-bind-html="''+issue.description | highlight: $select.search"></span>
+      </small>
+    </ui-select-choices>
+  </ui-select>
+
+  <!-- Test "unfiltered" list -->
     <ion-list>
         <ion-item ng-repeat="issue in issues">
             <strong>"{{ issue.issueType.name }}"</strong> assigned to <strong>{{ issue.assignee.name }}</strong> 
