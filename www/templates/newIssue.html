@@ -1,6 +1,13 @@
 <ion-view view-title="New Issue">
+  <ion-nav-buttons side="primary">
+    <a href="#/tab/home">
+      <button type="button" class="button-positive button-HOME"><h6>HOME</h6></button>
+    </a>
+  </ion-nav-buttons>
   <ion-nav-buttons side="secondary">
-    <button type="button" ng-controller="LogoutCtrl" ng-click="logOut()" class="button">Log Out</button>
+    <a href="#/tab/myIssues">
+      <button type="button" class="button-positive button-My-Issue"><h6>My Issues</h6></button>
+    </a>
   </ion-nav-buttons>
   <ion-content>
     <p>Hello! This is the issue creation screen.</p>
