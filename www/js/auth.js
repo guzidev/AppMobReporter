@@ -63,7 +63,7 @@ angular.module('citizen-engagement.auth', ['angular-storage'])
         });
 
         // Go to the issue creation tab.
-        $state.go('tab.newIssue');
+        $state.go('tab.home');
 
       }).error(function() {
 
