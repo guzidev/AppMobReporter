@@ -58,6 +58,11 @@ angular.module('citizen-engagement.controllers', [])
         $scope.issues = issues;
     });
 
+    // au chargement du controlleur :
+    // trouve les issues types
+    // dès que c'est trouvé, recupère id, prêt pour l'envoie à filterIssues()
+    // pour la requête utilise : $in de mongoDB
+
     $scope.filterIssues = function() {
 
         // Show a loading message if the request takes too long.
