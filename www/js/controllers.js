@@ -4,14 +4,16 @@ angular.module('citizen-engagement.controllers', [])
 /*
  * TO DO : GUZI
  * - /:id
- * - filter criteria (lvl 1 -> me)
- * - filter criteria (lvl 2 -> search)
- * - pagination filter
- * - handle actions
- *
+ * - [DONE] filter criteria (lvl 1 -> me)
+ * - [WORK IN PROGRESS] filter criteria (lvl 2 -> search)
+ * - [TO DO] pagination filter
+ * - [TO DO] handle actions
+ * - [TO DO] extract and extract all $http calls from individual controllers
  */
 
-.controller("IssueMapCtrl", function($scope, mapboxMapId, mapboxAccessToken) {
+
+
+.controller("IssueMapCtrl", function($scope, mapboxMapId, mapboxAccessToken, $http, apiUrl) {
     var mapboxTileLayer = "http://api.tiles.mapbox.com/v4/" + mapboxMapId;
         mapboxTileLayer = mapboxTileLayer + "/{z}/{x}/{y}.png?access_token=" + mapboxAccessToken;
         // add default config to map..
@@ -21,14 +23,38 @@ angular.module('citizen-engagement.controllers', [])
     
     // add center point to map..
     $scope.mapCenter = {
-        lat: 51.48,
-        lng: 0,
-        zoom: 4
+        lat: 46.78,
+        lng: 6.64,
+        zoom: 14
     };
     
     // add markers on the map..
     $scope.mapMarkers = [];
     
+    
+    // add all markers..
+    $http({
+        method: 'GET',
+        url: apiUrl + '/issues',
+        headers: {
+            'x-pagination': '0;20',          
+        }
+    })
+    .success(function(issues) {
+        $scope.issues = issues;
+        
+        angular.forEach(issues, function(value, key) {
+            console.log(key + ': ' + value.description);
+            $scope.mapMarkers.push({
+                lat: value.lat,
+                lng: value.lng,
+                message: '<p>' + value.description + '</p>'
+            })
+        })
+    });
+    
+    /*
+    // add one test marker..
     $scope.mapMarkers.push({
         lat: 51.48,
         lng: 0,
@@ -39,6 +65,13 @@ angular.module('citizen-engagement.controllers', [])
             return scope;
         }
     });
+    */
+
+    // add a single (or a group of) markers..
+    $scope.addMarker = function() {
+        // insert code here...
+    }
+
     
 
 })
