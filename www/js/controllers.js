@@ -1,14 +1,23 @@
 angular.module('citizen-engagement.controllers', [])
 
-        .controller('UserController', function($scope, $http) {
+
+/*
+ * TO DO : GUZI
+ * - /:id
+ * - filter criteria (lvl 1 -> me)
+ * - filter criteria (lvl 2 -> search)
+ * - pagination filter
+ * - handle actions
+ *
+ */
+
+.controller('UserController', function($scope, $http) {
            $scope.data = [
 			{ firstName: "John", lastName: "Doe" },
 			{ firstName: "John", lastName: "Smith" },
 			{ firstName: "David", lastName: "Lowe" },
 			{ firstName: "Mark", lastName: "Holloway" }
 		]; 
-                
-            //$http.get('apiUrl')
 })
 
 .controller('IssuesCtrl', function($scope, $http, apiUrl) {
@@ -37,16 +46,16 @@ angular.module('citizen-engagement.controllers', [])
     })
     .success(function(issues) {
         $scope.issues = issues;
-    });
+    });    
 })
 
-.controller('IssuesCtrl', function($scope, $http, apiUrl) {
+.controller('IssueTypesCtrl', function($scope, $http, apiUrl) {
     $scope.issues = {};
     $http({
         method: 'GET',
-        url: apiUrl + '/issues',
+        url: apiUrl + '/issueTypes',
         headers: {
-            'x-pagination': '0;100'
+            'x-pagination': '0;20'
         }
     })
     .success(function(issues) {

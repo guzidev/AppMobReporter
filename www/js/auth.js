@@ -46,6 +46,8 @@ angular.module('citizen-engagement.auth', ['angular-storage'])
         url: apiUrl + '/users/logister',
         data: $scope.user
       }).success(function(user) {
+      //}).success(function(user, status) {
+      // TO DO - check 201 vs 200.
 
         // If successful, give the user to the authentication service.
         AuthService.setUser(user);
