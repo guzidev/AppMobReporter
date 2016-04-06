@@ -1,1 +1,21 @@
 /* Empty. Add your own CSS if you like */
+
+.css-myIssues h4 {
+	margin: 3% 4% 1% 4%;
+}
+.button.button-positive {
+	float: right;
+	margin-top: -32%;
+}
+.button-positive h5 p{
+	font-size: 0.9em;
+}
+.button-My-Issue h5{
+
+	font-size: 2em;
+}
+
+.button_Logout button a{
+	font-size: 1px;
+}
+

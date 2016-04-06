@@ -1,11 +1,35 @@
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+<!-- 3 Boutons dans le footer-->
+  <!-- bouton pour aller sur la page "New Issue"-->
   <ion-tab title="New Issue" icon-off="ion-plus-round" icon-on="ion-plus-round" href="#/tab/newIssue">
     <ion-nav-view name="tab-newIssue"></ion-nav-view>
   </ion-tab>
+
+  <!-- bouton pour aller sur la page "Issue Maps"-->
   <ion-tab title="Issue Map" icon-off="ion-map" icon-on="ion-map" href="#/tab/issueMap">
     <ion-nav-view name="tab-issueMap"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="Issue List" icon-off="ion-navicon-round" icon-on="ion-navicon-round" href="#/tab/issueList">
+
+  <!-- bouton pour aller sur la page "Issue List"-->
+  <ion-tab title="Issue List" icon-off="ion-navicon-round" icon-on="ion-navicon-round" href="#/tab/issueList" badge="54" badge-style="badge-assertive">
     <ion-nav-view name="tab-issueList"></ion-nav-view>
   </ion-tab>
+  
+<!-- Boutons cacher-->
+<!-- Ces boutons sont cachés car il est necessaire d'afficher la side bar du bas. Sans ces boutons, la side bar n'apparait pas-->
+
+  <!-- bouton pour aller sur la page "Home"-->
+  <ion-tab title="home" icon-off="ion-navicon-round" icon-on="ion-navicon-round" href="#/tab/home" hidden="true">
+    <ion-nav-view name="tab-home"></ion-nav-view>
+  </ion-tab>
+
+  <!-- bouton pour aller sur la page "My Issue"-->
+  <ion-tab title="My Issues" icon-off="ion-navicon-round" icon-on="ion-navicon-round" href="#/tab/myIssues" hidden="true">
+    <ion-nav-view name="tab-myIssues"></ion-nav-view>
+  </ion-tab>
+
+ <!-- bouton pour aller sur la page d'un Issue"-->
+
+
 </ion-tabs>

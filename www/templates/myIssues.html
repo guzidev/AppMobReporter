@@ -1,0 +1,43 @@
+<ion-view view-title="My Issues" class="title">
+  <ion-nav-buttons side="primary">
+    <a href="#/tab/home">
+      <button type="button" class="button-positive button-HOME"><h6>HOME</h6></button>
+    </a>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <a href="#/tab/myIssues">
+      <button type="button" class="button-positive button-My-Issue"><h6>My Issues</h6></button>
+    </a>
+  </ion-nav-buttons>
+  	<ion-content ng-controller="IssuesCtrl">
+      <a class="list">
+
+        <a ng-repeat="issue in issues" 
+           href="#/{{issue.id}}"
+           class="item item-thumbnail-left css-myIssues">
+
+          <img ng-src="{{ issue.imageUrl }}">
+          <h2>{{ issue.issueType.name }}</h2>
+          <p>{{ issue.issueType.description }}</p>
+          <h5>{{ issue.owner.name }}</h5>
+          <h5>{{ issue.createdOn }}</h5>
+          <button class="button button-positive">
+              <h4>Status</h4>
+              <p>{{ issue.state }}<p>
+          </button>
+        </a>
+
+        <!-- Bouton pour créer une nouvelle Issue qui ramène vers la page NewIssue-->
+        Add a new Issue
+        <a href="#/tab/newIssue">
+          <button class="button btn-add-Issue">
+          </button>
+        </a>
+      </a>
+    </ion-content>
+</ion-view>
+
+<!-- http://codepen.io/ionic/pen/isfAJ-->
+
+
+
