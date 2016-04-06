@@ -11,15 +11,6 @@ angular.module('citizen-engagement.controllers', [])
  *
  */
 
-.controller('UserController', function($scope, $http) {
-           $scope.data = [
-			{ firstName: "John", lastName: "Doe" },
-			{ firstName: "John", lastName: "Smith" },
-			{ firstName: "David", lastName: "Lowe" },
-			{ firstName: "Mark", lastName: "Holloway" }
-		]; 
-})
-
 .controller('IssuesCtrl', function($scope, $http, apiUrl) {
     $scope.issues = {};
     
