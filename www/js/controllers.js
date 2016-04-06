@@ -11,7 +11,40 @@ angular.module('citizen-engagement.controllers', [])
  *
  */
 
-.controller('IssuesCtrl', function($scope, $http, apiUrl) {
+.controller("IssueMapCtrl", function($scope, mapboxMapId, mapboxAccessToken) {
+    var mapboxTileLayer = "http://api.tiles.mapbox.com/v4/" + mapboxMapId;
+        mapboxTileLayer = mapboxTileLayer + "/{z}/{x}/{y}.png?access_token=" + mapboxAccessToken;
+        // add default config to map..
+        $scope.mapDefaults = {
+        tileLayer: mapboxTileLayer
+    };
+    
+    // add center point to map..
+    $scope.mapCenter = {
+        lat: 51.48,
+        lng: 0,
+        zoom: 4
+    };
+    
+    // add markers on the map..
+    $scope.mapMarkers = [];
+    
+    $scope.mapMarkers.push({
+        lat: 51.48,
+        lng: 0,
+        message: "<p> Hello </p>",
+        getMessageScope: function() {
+            var scope = $scope.$new();
+            scope.name = "World";
+            return scope;
+        }
+    });
+    
+
+})
+
+
+.controller('IssuesCtrl', function($scope, $http, apiUrl, $ionicLoading) {
     $scope.issues = {};
     
     $http({
@@ -29,25 +62,29 @@ angular.module('citizen-engagement.controllers', [])
 
         // Show a loading message if the request takes too long.
         $ionicLoading.show({
-        template: 'Logging in...',
+        template: 'Retrieving data...',
         delay: 750
         });
 
         $http({
-            method: 'GET',
-            url: apiUrl + '/issues',
+            method: 'POST',
+            url: apiUrl + '/issues/search',
             headers: {
             'Content-Type': 'application/json',
             'x-pagination': '0;20',          
             },
             data: {
-                id: '5703a17eaa8d790e00546e53'
+                //'_issueType': '5703a17eaa8d790e00546b94'
+                '_issueType': $scope.issueType.id
             }
     }).then(
         function(issues) {
             $ionicLoading.hide();
             // necessary? // Go to the issue list tab.
             //$state.go('tab.myIssues');
+            $scope.issues = issues.data;
+
+            console.log($scope.issues);
         },
         function() {
             // If an error occurs, hide the loading message and show an error message.
@@ -58,14 +95,14 @@ angular.module('citizen-engagement.controllers', [])
     }
 })
 
+
 .controller('MyIssuesCtrl', function($scope, $http, apiUrl) {
     $scope.issues = {};
     $http({
         method: 'GET',
         url: apiUrl + '/me/issues',
         headers: {
-            'x-pagination': '0;20',
-            'x-user-id': AuthService.currentUserId
+            'x-pagination': '0;20'
         }
     })
     .success(function(issues) {
