@@ -1,6 +1,14 @@
-<ion-view view-title="Issue Detail">
-  <ion-content>
+<ion-view view-title="Issue Details">
+  <ion-content ng-controller="IssueDetailsCtrl">
     <p>Hello! This is the issue detail screen.</p>
+
+    <!-- Test "unfiltered" list -->
+    <ion-list>
+        <ion-item>
+            <strong>"{{ issue }}"</strong> assigned to <strong>{{ issue.assignee.name }}</strong> 
+        </ion-item>
+        
+    </ion-list>
     
   </ion-content>
 </ion-view>

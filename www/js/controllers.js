@@ -81,6 +81,7 @@ angular.module('citizen-engagement.controllers', [])
             data: {
                 //'_issueType': '5703a17eaa8d790e00546b94'
                 '_issueType': $scope.issueType.id
+                // TO DO : continue filtering criteria
             }
     }).then(
         function(issues) {
@@ -98,6 +99,23 @@ angular.module('citizen-engagement.controllers', [])
       }
     )
     }
+})
+
+.controller('IssueDetailsCtrl', function($scope, $http, apiUrl, $stateparams) {
+    $scope.issueId = $stateparams.issueId;
+    //console.log("throw controller");
+    $http({
+        method: 'GET',
+        //url: apiUrl + '/issues/' + $scope.issueId,
+        url: apiUrl + '/issues/' + $stateparams.issueId,
+        headers: {
+            //'x-pagination': '0;20'
+        }
+    })
+    .success(function(issue) {
+        $scope.issue = issue;
+
+    });
 })
 
 
@@ -143,5 +161,7 @@ angular.module('citizen-engagement.controllers', [])
         $scope.issues = issues;
     });
 })
+
+
 
 ;
