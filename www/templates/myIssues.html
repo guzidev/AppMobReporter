@@ -1,25 +1,23 @@
 <ion-view view-title="My Issues">
-
-	
-  	<ion-content ng-controller="MyCtrl">
+  	<ion-content ng-controller="IssuesCtrl">
       <a class="list">
 
-        <a ng-repeat="item in items" 
-           href="#/{{item.id}}"
-           class="item item-thumbnail-left ">
+        <a ng-repeat="issue in issues" 
+           href="#/{{issue.id}}"
+           class="item item-thumbnail-left css-myIssues">
 
-          <img ng-src="{{ item.image }}">
-          <h2>{{ item.titre }}</h2>
-          <h4>{{ item.description }}</h4>
-          <h4>{{ item.author }}</h4>
-          <h4>{{ item.date_creation }}</h4>
+          <img ng-src="{{ issue.imageUrl }}">
+          <h2>{{ issue.issueType.name }}</h2>
+          <p>{{ issue.issueType.description }}</p>
+          <h5>{{ issue.owner.name }}</h5>
+          <h5>{{ issue.createdOn }}</h5>
+          <button class="button button-positive">
+              Status
+              <p>{{ issue.state }}<p>
+          </button>
         </a>
-
       </a>
     </ion-content>
-
-
-
 </ion-view>
 
 <!-- http://codepen.io/ionic/pen/isfAJ-->
