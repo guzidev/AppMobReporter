@@ -41,7 +41,7 @@ angular.module('citizen-engagement.controllers', [])
             'x-pagination': '0;20',          
             },
             data: {
-                //XX
+                id: '5703a17eaa8d790e00546e53'
             }
     }).then(
         function(issues) {

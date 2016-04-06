@@ -1,11 +1,6 @@
 <ion-view view-title="Issue Map">
   <ion-content>
     <p>Hello! This is the issue map screen.</p>
-
-    <ion-list ng-controller="MyIssuesCtrl">
-        <ion-item ng-repeat="issue in issues">
-            Issue of category: "{{ issue.issueType.name }}". Current status: "{{ issue.state }}" and assigned to: {{ issue.assignee.name }}
-        </ion-item>
         
     </ion-list>
   </ion-content>
