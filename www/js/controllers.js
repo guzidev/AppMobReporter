@@ -140,7 +140,8 @@ angular.module('citizen-engagement.controllers', [])
         url: apiUrl + '/users',
         headers: {
             'x-pagination': '0;10',
-            'x-user-id': AuthService.currentUserId,
+            // pas besoin de setté 'x-user-id' car Auth.js s'en occupe à chaque requête http
+            //'x-user-id': AuthService.currentUserId,
         }
     })
     .success(function(issues) {
