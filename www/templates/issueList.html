@@ -1,10 +1,14 @@
 <ion-view view-title="Issue List">
-  <ion-content>
+  <ion-content ng-controller="IssuesCtrl">
     <p>Hello! This is the issue list screen.</p>
-    
-    <ion-list ng-controller="IssuesCtrl">
+    <label class="item item-input">
+          <input type="text" placeholder="Issue Type" ng-model="issueType.id" required="required"/>
+        </label>
+    <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
+    <ion-list>
         <ion-item ng-repeat="issue in issues">
-            Issue of category: "{{ issue.issueType.name }}". Current status: "{{ issue.state }}" and assigned to: {{ issue.assignee.name }}
+
+            Issue of category: "{{ issue.issueType.name }}". Current status: "{{ issue.state }}" and assigned to: {{ issue.assignee.name }} 
         </ion-item>
         
     </ion-list>
