@@ -1,4 +1,5 @@
-<ion-view view-title="Issue Detail">
+
+<ion-view view-title="Issue Details">
 
 <ion-nav-buttons side="primary">
       <a href="#/tab/home">
@@ -11,8 +12,15 @@
     </a>
   </ion-nav-buttons>
   
-  <ion-content>
-    <p>Hello! This is the issue detail screen.</p>
-    
+  <ion-content ng-controller="IssueDetailsCtrl">
+      <h2>{{issue.assignee.name}}</h2>
+      <img ng-src="{{ issue.imageUrl }}">
+      <h2>{{ issue.issueType.name }}</h2>
+      <p>{{ issue.issueType.description }}</p>
+      <h5>{{ issue.owner.name }}</h5>
+      <h5>{{ issue.createdOn }}</h5>
+
+      
+
   </ion-content>
 </ion-view>

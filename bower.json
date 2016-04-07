@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "a0-angular-storage": "0.0.13",
-    "angular-leaflet-directive": "^0.10.0"
+    "angular-leaflet-directive": "^0.10.0",
+    "ui-select": "angular-ui-select#^0.16.1"
   }
 }

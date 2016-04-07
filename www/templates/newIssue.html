@@ -11,21 +11,23 @@
     </a>
   </ion-nav-buttons>
 
-  <ion-content>
-    <p>Hello! This is the issue creation screen.</p>
-    <ul classe="list">
-        <li class="item">first</li>
-        <li class="item">second</li>
-        <li class="item">third</li>
-
-    </ul>
+  <ion-content ng-controller="MyIssuesCtrl" scroll="false">
+  
+  <div class="issue-map">
+    <leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>
+  </div>
     
-    <ion-list ng-controller="UsersCtrl">
-        <ion-item ng-repeat="user in data" >
-            {{ user.firstName }} {{ user.lastName }}
-        </ion-item>
-        
-    </ion-list>
+    <a ng-repeat="issue in issues" 
+           href="#/tab/issueDetails/{{issue.id}}"
+           class="item item-thumbnail-left css-myIssues">
+
+          <img ng-src="{{ issue.imageUrl }}">
+          <h2>{{ issue.issueType.name }}</h2>
+          <p>{{ issue.issueType.description }}</p>
+          <h5>{{ issue.owner.name }}</h5>
+          <h5>{{ issue.createdOn }}</h5>
+        </a>
+
     
   </ion-content>
 </ion-view>

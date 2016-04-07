@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('citizen-engagement', ['ionic', 'leaflet-directive', 'citizen-engagement.auth', 'citizen-engagement.constants', 'citizen-engagement.controllers'])
+angular.module('citizen-engagement', ['ionic', 'leaflet-directive', 'citizen-engagement.auth', 'citizen-engagement.constants', 'citizen-engagement.controllers', 'ui.router'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -62,14 +62,13 @@ angular.module('citizen-engagement', ['ionic', 'leaflet-directive', 'citizen-eng
 
     // This is the issue details state.
     .state('tab.issueDetails', {
-      // We use a parameterized route for this state.
-      // That way we'll know which issue to display the details of.
       url: '/issueDetails/:issueId',
       views: {
         // Here we use the same "tab-issueList" view as the previous state.
         // This means that the issue details template will be displayed in the same tab as the issue list.
-        'tab-issueList': {
-          templateUrl: 'templates/issueDetails.html'
+        'tab-issueDetails': {
+          templateUrl: 'templates/issueDetails.html',
+          controller: 'IssueDetailsCtrl'
         }
       }
     })
@@ -90,6 +89,18 @@ angular.module('citizen-engagement', ['ionic', 'leaflet-directive', 'citizen-eng
       views: {
         'tab-home': {
           templateUrl: 'templates/home.html'
+        }
+      }
+    })
+
+
+    // This is the  state for Issues Search.
+    .state('tab.searchIssues', {
+      url: '/searchIssues',
+      views: {
+        'tab-searchIssues': {
+          templateUrl: 'templates/searchIssues.html',
+          controller: 'SearchCtrl'
         }
       }
     })
