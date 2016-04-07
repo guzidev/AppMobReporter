@@ -1,11 +1,13 @@
 <ion-view view-title="Issue home">
-  <ion-nav-buttons side="primary">
-    <button type="button" ng-controller="LogoutCtrl" ng-click="logOut()" class="ion-android-exit"></button>
-  </ion-nav-buttons>
 
+  <ion-nav-buttons side="primary">
+      <a href="#/tab/home">
+        <button type="button" ng-controller="LogoutCtrl" ng-click="logOut()" class="button icon ion-android-exit button-HOME"></button>
+      </a>
+  </ion-nav-buttons>
   <ion-nav-buttons side="secondary">
     <a href="#/tab/myIssues">
-      <button type="button" class="button-positive button-My-Issue"><h6>My Issues</h6></button>
+      <button type="button" class="button icon ion-star button-favory">My Issues</button>
     </a>
   </ion-nav-buttons>
 
@@ -15,11 +17,6 @@
   <div class="h1 title">Header Buttons</div>
     <button class="button button-clear button-positive">Edit</button>
   </div>
-
-
-
-
-
 
   <ion-content class="home-content">
     

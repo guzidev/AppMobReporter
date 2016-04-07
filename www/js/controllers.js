@@ -10,7 +10,8 @@ angular.module('citizen-engagement.controllers', [])
  * - handle actions
  *
  */
-
+ 
+// Controler pour ... 
 .controller("IssueMapCtrl", function($scope, mapboxMapId, mapboxAccessToken) {
     var mapboxTileLayer = "http://api.tiles.mapbox.com/v4/" + mapboxMapId;
         mapboxTileLayer = mapboxTileLayer + "/{z}/{x}/{y}.png?access_token=" + mapboxAccessToken;
@@ -43,7 +44,7 @@ angular.module('citizen-engagement.controllers', [])
 
 })
 
-
+// Controler pour ... 
 .controller('IssuesCtrl', function($scope, $http, apiUrl, $ionicLoading) {
     $scope.issues = {};
     
@@ -95,7 +96,7 @@ angular.module('citizen-engagement.controllers', [])
     }
 })
 
-
+// Controler pour ... 
 .controller('MyIssuesCtrl', function($scope, $http, apiUrl) {
     $scope.issues = {};
     $http({
@@ -110,21 +111,21 @@ angular.module('citizen-engagement.controllers', [])
     });
 })
 
+// Controler pour ... 
 .controller('UsersCtrl', function($scope, $http, apiUrl) {
     $scope.issues = {};
     $http({
         method: 'GET',
         url: apiUrl + '/users',
         headers: {
-            'x-pagination': '0;10',
-            'x-user-id': AuthService.currentUserId,
+            'x-pagination': '0;10'
         }
     })
     .success(function(issues) {
         $scope.issues = issues;
     });    
 })
-
+// Controler pour ... 
 .controller('IssueTypesCtrl', function($scope, $http, apiUrl) {
     $scope.issues = {};
     $http({
@@ -138,5 +139,6 @@ angular.module('citizen-engagement.controllers', [])
         $scope.issues = issues;
     });
 })
+
 
 ;

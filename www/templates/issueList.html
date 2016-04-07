@@ -1,16 +1,41 @@
 <ion-view view-title="Issue List">
-  <ion-content ng-controller="IssuesCtrl">
-    <p>Hello! This is the issue list screen.</p>
-    <label class="item item-input">
-          <input type="text" placeholder="Issue Type" ng-model="issueType.id" required="required"/>
-        </label>
-    <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
-    <ion-list>
-        <ion-item ng-repeat="issue in issues">
+   <!-- Bouton sur le header-->
+  <ion-nav-buttons side="primary">
+      <a href="#/tab/home">
+        <button type="button" class="button icon ion-home button-HOME"></button>
+      </a>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <a href="#/tab/myIssues">
+      <button type="button" class="button icon ion-star button-favory">My Issues</button>
+    </a>
+  </ion-nav-buttons>
 
-            Issue of category: "{{ issue.issueType.name }}". Current status: "{{ issue.state }}" and assigned to: {{ issue.assignee.name }} 
-        </ion-item>
+  <ion-content ng-controller="IssuesCtrl">
+    <!-- Recherche d'un Issue par nom -->
+    <label class="item item-input">
+      <input type="text" placeholder="Issue Type" ng-model="issueType.id" required="required"/>
+    </label>
+    <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
+
+    <!-- Recuperation des données -->
+    <a class="list">
         
-    </ion-list>
+        <a ng-repeat="issue in issues" 
+           href="#/{{issue.id}}"
+           class="item item-thumbnail-left css-AllIssues">
+
+          <img ng-src="{{ issue.imageUrl }}">
+          <h2>{{ issue.issueType.name }}</h2>
+          <p>{{ issue.issueType.description }}</p>
+          <h5>{{ issue.owner.name }}</h5>
+          <h5>{{ issue.createdOn }}</h5>
+          <button class="button button-positive">
+              <h4>Status</h4>
+              <p>{{ issue.state }}<p>
+          </button>
+        </a>
+      </a>
+
   </ion-content>
 </ion-view>
