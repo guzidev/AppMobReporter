@@ -11,7 +11,17 @@ angular.module('citizen-engagement.controllers', [])
  * - [TO DO] extract and extract all $http calls from individual controllers
  */
 
-
+.controller("AnyController", function(CameraService) {
+    CameraService.getPicture({
+        quality: 75,
+        targetWidth: 400,
+        targetHeight: 300,
+        //destinationType: Camera.DestinationType.DATA_URL
+    })
+    .then(function(imageData) {
+    // do something with imageData
+    });
+});
 
 .controller("IssueMapCtrl", function($scope, mapboxMapId, mapboxAccessToken, $http, apiUrl) {
     var mapboxTileLayer = "http://api.tiles.mapbox.com/v4/" + mapboxMapId;
