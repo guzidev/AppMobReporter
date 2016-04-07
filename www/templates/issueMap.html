@@ -1,4 +1,16 @@
 <ion-view view-title="Issue Map">
+
+<ion-nav-buttons side="primary">
+      <a href="#/tab/home">
+        <button type="button" class="button icon ion-home button-HOME"></button>
+      </a>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <a href="#/tab/myIssues">
+      <button type="button" class="button icon ion-star button-favory">My Issues</button>
+    </a>
+  </ion-nav-buttons>
+  
   <ion-content scroll="false">
     <p>Hello! This is the issue map screen.</p>
 		<leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>

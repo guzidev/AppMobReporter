@@ -93,6 +93,29 @@ angular.module('citizen-engagement', ['ionic', 'leaflet-directive', 'citizen-eng
       }
     })
 
+
+    // This is the  state for Issues Search.
+    .state('tab.searchIssues', {
+      url: '/searchIssues',
+      views: {
+        'tab-searchIssues': {
+          templateUrl: 'templates/searchIssues.html',
+          controller: 'SearchCtrl'
+        }
+      }
+    })
+
+    // This is the  state for Tutorial.
+
+    .state('tab.tutorial', {
+      url: '/tutorial',
+      views: {
+        'tab-tutorial': {
+          templateUrl: 'templates/tutorial.html'
+        }
+      }
+    })
+
   ;
 
   // Define the default state (i.e. the first screen displayed when the app opens).

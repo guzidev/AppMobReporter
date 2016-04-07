@@ -4,5 +4,4 @@ angular.module('citizen-engagement.constants', [])
   .constant('mapboxAccessToken', '@mapboxAccessToken@')
   .constant("qimgUrl", "@qimgUrl@")
   .constant("qimgToken", "@qimgToken@")
-
 ;

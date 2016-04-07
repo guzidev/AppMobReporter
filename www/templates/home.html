@@ -1,11 +1,13 @@
 <ion-view view-title="Issue home">
-  <ion-nav-buttons side="primary">
-    <button type="button" ng-controller="LogoutCtrl" ng-click="logOut()" class="ion-android-exit"></button>
-  </ion-nav-buttons>
 
+  <ion-nav-buttons side="primary">
+      <a href="#/tab/home">
+        <button type="button" ng-controller="LogoutCtrl" ng-click="logOut()" class="button icon ion-android-exit button-HOME"></button>
+      </a>
+  </ion-nav-buttons>
   <ion-nav-buttons side="secondary">
     <a href="#/tab/myIssues">
-      <button type="button" class="button-positive button-My-Issue"><h6>My Issues</h6></button>
+      <button type="button" class="button icon ion-star button-favory">My Issues</button>
     </a>
   </ion-nav-buttons>
 
@@ -16,48 +18,55 @@
     <button class="button button-clear button-positive">Edit</button>
   </div>
 
-
-
-
-
-
   <ion-content class="home-content">
-    
-    <div class="btn1"> 
-      <button class="button  ">
-        <img src="img/ionic.png"/>
-      </button>
-      <li> 
-        <p>Create Issue</p>
-      </li>
-    </div>
-
-    <div class="btn2"> 
-      <button class="button">
-        <img src="img/ionic.png"/>
+   
+    <a href="#/tab/newIssue"
+       class="item item-thumbnail-left"> 
+      <div class="btn1"> 
+        <button class="button  ">
+          <img src="img/ionic.png"/>
+        </button>
         <li> 
-          <p>Search Issue</p>
+          <p>Create Issue</p>
         </li>
-      </button>
-    </div>
+      </div>
+    </a>
 
-    <div class="btn3"> 
-      <button class="button">
-        <img src="img/ionic.png"/>
-        <li> 
-          <p>My Issue</p>
-        </li>
-      </button>
-    </div>
+    <a href="#/tab/searchIssues"
+       class="item item-thumbnail-left"> 
+      <div class="btn2"> 
+        <button class="button">
+          <img src="img/ionic.png"/>
+          <li> 
+            <p>Search Issue</p>
+          </li>
+        </button>
+      </div>
+    </a>
 
-    <div class="btn4"> 
-      <button class="button">
-        <img src="img/ionic.png"/>
-        <li> 
-          <p>All Issue</p>
-        </li>
-      </button>
-    </div>
+    <a href="#/tab/myIssues"
+       class="item item-thumbnail-right"> 
+      <div class="btn3"> 
+        <button class="button">
+          <img src="img/ionic.png"/>
+          <li> 
+            <p>My Issue</p>
+          </li>
+        </button>
+      </div>
+    </a>
+
+    <a href="#/tab/issueList"
+       class="item item-thumbnail-left"> 
+      <div class="btn4"> 
+        <button class="button">
+          <img src="img/ionic.png"/>
+          <li> 
+            <p>All Issue</p>
+          </li>
+        </button>
+      </div>
+    </a>
 
 
   </ion-content>

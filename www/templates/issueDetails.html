@@ -1,14 +1,26 @@
-<ion-view view-title="Issue Details">
-  <ion-content ng-controller="IssueDetailsCtrl">
-    <p>Hello! This is the issue detail screen.</p>
 
-    <!-- Test "unfiltered" list -->
-    <ion-list>
-        <ion-item>
-            <strong>"{{ issue }}"</strong> assigned to <strong>{{ issue.assignee.name }}</strong> 
-        </ion-item>
-        
-    </ion-list>
-    
+<ion-view view-title="Issue Details">
+
+<ion-nav-buttons side="primary">
+      <a href="#/tab/home">
+        <button type="button" class="button icon ion-home button-HOME"></button>
+      </a>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <a href="#/tab/myIssues">
+      <button type="button" class="button icon ion-star button-favory">My Issues</button>
+    </a>
+  </ion-nav-buttons>
+  
+  <ion-content ng-controller="IssueDetailsCtrl">
+      <h2>{{issue.assignee.name}}</h2>
+      <img ng-src="{{ issue.imageUrl }}">
+      <h2>{{ issue.issueType.name }}</h2>
+      <p>{{ issue.issueType.description }}</p>
+      <h5>{{ issue.owner.name }}</h5>
+      <h5>{{ issue.createdOn }}</h5>
+
+      
+
   </ion-content>
 </ion-view>
