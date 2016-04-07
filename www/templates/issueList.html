@@ -26,14 +26,10 @@
     <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
 
     <!-- Test "multiple search" field -->
-    <ui-select multiple ng-model="issueType.id" ng-disabled="ctrl.disabled" sortable="true" close-on-select="false">
-    <ui-select-match placeholder="Select issue...">{{ $issue.owner.name }} &lt;{{ $issue.id }}&gt;</ui-select-match>
-    <ui-select-choices repeat="issue in issues | propsFilter: {owner.name: $select.search, id: $select.search}">
-      <div ng-bind-html="issue.issueType.name | highlight: $select.search"></div>
-      <small>
-        name: {{ issue.owner.name }}
-        <!-- description: <span ng-bind-html="''+ issue.id | highlight: $select.search"></span> -->
-      </small>
+    <ui-select multiple ng-model="selectedIssueTypes" ng-disabled="ctrl.disabled" sortable="true" close-on-select="false">
+    <ui-select-match placeholder="Select issue type...">{{$item.name}}</ui-select-match>
+    <ui-select-choices repeat="type in issueTypes">
+      <div ng-bind-html="type.name | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
   

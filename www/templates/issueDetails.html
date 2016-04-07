@@ -15,6 +15,16 @@
   <ion-content ng-controller="IssueDetailsCtrl">
       <h2>{{issue.assignee.name}}</h2>
       <img ng-src="{{ issue.imageUrl }}">
+
+
+<div ng-model="isStaff" ng-init="isStaff=false">
+
+<span >
+  <button ng-if="isStaff" class="animate-if" > Assign to me</button>
+</span>
+</div>
+
+
       <h2>{{ issue.issueType.name }}</h2>
       <p>{{ issue.issueType.description }}</p>
       <h5>{{ issue.owner.name }}</h5>
