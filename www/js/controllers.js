@@ -21,7 +21,7 @@ angular.module('citizen-engagement.controllers', [])
     .then(function(imageData) {
     // do something with imageData
     });
-});
+})
 
 
 /** CONTROLER MAP ISSUES **/
