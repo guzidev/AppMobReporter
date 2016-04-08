@@ -11,6 +11,18 @@ angular.module('citizen-engagement.controllers', [])
  * - [TO DO] extract and extract all $http calls from individual controllers
  */
 
+.controller("AnyController", function(CameraService) {
+    CameraService.getPicture({
+        quality: 75,
+        targetWidth: 400,
+        targetHeight: 300,
+        //destinationType: Camera.DestinationType.DATA_URL
+    })
+    .then(function(imageData) {
+    // do something with imageData
+    });
+});
+
 
 /** CONTROLER MAP ISSUES **/
 /* Controler pour la gestion de la map   */
