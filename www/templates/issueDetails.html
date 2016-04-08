@@ -1,6 +1,6 @@
-
 <ion-view view-title="Issue Details">
 
+<!-- BOUTON NAVIGATION -->
 <ion-nav-buttons side="primary">
       <a href="#/tab/home">
         <button type="button" class="button icon ion-home button-HOME"></button>
@@ -11,16 +11,93 @@
       <button type="button" class="button icon ion-star button-favory">My Issues</button>
     </a>
   </ion-nav-buttons>
-  
-  <ion-content ng-controller="IssueDetailsCtrl">
-      <h2>{{issue.assignee.name}}</h2>
-      <img ng-src="{{ issue.imageUrl }}">
-      <h2>{{ issue.issueType.name }}</h2>
-      <p>{{ issue.issueType.description }}</p>
-      <h5>{{ issue.owner.name }}</h5>
-      <h5>{{ issue.createdOn }}</h5>
+ 
 
-      
+  <!-- CONTENT -->
+  <ion-content ng-controller="IssueDetailsCtrl">
+
+  <div class="list card">
+
+    <!-- Recuperation des données -->
+    <div class="item" ng-model="isStaff" ng-init="isStaff=true">
+        <button ng-if="isStaff">Assign to me</button> 
+    </div>
+   
+      <div class="item ">
+      <h3>Type : {{ issue.issueType.name }}</h3>
+      <p>Status : {{issue.state}}</p>
+      <img class="full-image img-issueDetail" src="{{ issue.imageUrl }}">
+      <div class="author-date-assign">
+        <h4>Author : {{ issue.owner.name }}</h4>
+        <h4>Date :  {{ issue.createdOn | date:'dd-MM-yyyy' }}</h4>
+
+        <h5>Assign to: {{issue.assignee.name}}</h5>
+      </div>
+    </div>
+
+    <div class="item description-issue">
+       <p>
+        Descritpion :{{ issue.description }}
+      </p>
+    </div>
+<!--
+    <ion-content scroll="false">
+      <leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>
+    </ion-content>
+  -->
+
+    <!-- Affichage de la map -->
+     <div class="item map-issue">
+      ici s'affiche la map
+       <p>
+        <leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>
+      </p>
+    </div>
+
+    <!-- Affichage des commentaires et ajout d'un nouveau commentaire -->
+    <div class="item item-body" ng-controller="controlerAccordeon">
+
+      <p>
+        <a class="subdued">Commentaires</a>
+      </p>
+      <!-- ajout d'un nouveau commentaire -->
+      <!-- TO DO : KAM & Guzi  -->
+      <!-- Recuperer le nom de la personne connecté pour l'afficher -->
+      <div class="list">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="ajouter votre commentaire">
+          </label>
+          <button class="button button-small">
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <!-- Affichage des commentaires -->
+      <!-- TO DO : KAM  -->
+      <!-- Reussir à modifier le nom "0- 0 " par "le commentaire en texte"  -->
+      <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            4 commentaires {{group.name}} 
+         
+          </ion-item>
+          <ion-item class="item-accordion"
+                    ng-repeat="item in group.items"
+                    ng-show="isGroupShown(group)">
+            {{item}}<!-- ici doit s'afficher le commentaire créer"  -->
+            <h4>Author : {{ issue.owner.name }}</h4>
+          </ion-item>
+        </div>
+      </ion-list>
+
+    </div>
+</div>
 
   </ion-content>
 </ion-view>

@@ -12,19 +12,8 @@
     </a>
   </ion-nav-buttons>
 
-
-
-  <ion-content ng-controller="IssuesCtrl">
-
-    <!-- Recherche d'un Issue par nom -->
-
    
-    <!-- Test "search" button -->
-    <label class="item item-input">
-      <input type="text" placeholder="Issue Type" ng-model="issueType.id" required="required"/>
-    </label>
-    <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
-
+ <ion-content ng-controller="IssuesCtrl">
     <!-- Test "multiple search" field 
     <ui-select multiple ng-model="issueType.id" ng-disabled="ctrl.disabled" sortable="true" close-on-select="false">
     <ui-select-match placeholder="Select issue...">{{ $item.name }} &lt;{{ $item.description }}&gt;</ui-select-match>
@@ -37,6 +26,39 @@
     </ui-select-choices>
   </ui-select>
   -->
+    
+    <!-- Affichage de deux boutons pour VISUAL LIST/MAP -->
+    <div ng-controller="AppCtrl">
+      <div class=" button-bar">
+        <button class="button button-light button-android" ng-class="{ 'button\-positive': demo == 'ios' }" ng-click="setPlatform('ios')">
+          Visual List
+        </button>
+        <button class="button button-light button-android" ng-class="{ 'button\-positive': demo == 'ionic' }" ng-click="setPlatform('ionic')">
+          Visual Map
+        </button>
+      </div>
+
+      <!-- Trie par Auteur ascendant / descendant et par Date -->
+      <ul class="list">  
+        <li class="item item-toggle">
+        Author
+          <label class="toggle toggle-assertive">
+            <input type="checkbox">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </li>
+        <li class="item item-toggle">
+        Date
+          <label class="toggle toggle-assertive">
+            <input type="checkbox">
+            <div class="track">
+              <div class="handle"></div>
+            </div>
+          </label>
+        </li>
+      </ul>
 
     <!-- Recuperation des données -->
     <a class="list">
@@ -54,11 +76,28 @@
               <h4>Status</h4>
               <p>{{ issue.state }}<p>
           </button>
+          
+          <!-- bouton visible que lors staff pour editer le status -->
+          <div class="item" ng-model="isStaff" ng-init="isStaff=false">
+            <button class="button button-positive" ng-if="isStaff">edit</button>
+            <p>{{ issue.edit }}<p> 
+          </div>
+
+ 
         </a>
       </a>
 
-      <ion-refresher on-refresh="doRefresh()">              
-      </ion-refresher>
+      ng-model="isStaff"
+
+    <!--Methode de rafraichissement de la page  -->  
+    <ion-refresher on-refresh="doRefresh()">              
+    </ion-refresher>
+
+    <!-- search button -->
+    <label class="item item-input">
+      <input type="text" placeholder="Issue Type" ng-model="issueType.id" required="required"/>
+    </label>
+    <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
 
 
   </ion-content>

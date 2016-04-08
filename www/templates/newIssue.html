@@ -11,23 +11,45 @@
     </a>
   </ion-nav-buttons>
 
-  <ion-content ng-controller="MyIssuesCtrl" scroll="false">
-  
-  <div class="issue-map">
-    <leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>
+  <ion-content ng-controller="MyIssuesCtrl">
+
+    <!--Ajout TYPE -->
+     <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Selectionner le type
+        </div>
+        <select>
+          <option>TYPE1</option>
+          <option selected>TYPE2</option>
+          <option>TYPE3</option>
+        </select>
+      </label>
   </div>
     
-    <a ng-repeat="issue in issues" 
-           href="#/tab/issueDetails/{{issue.id}}"
-           class="item item-thumbnail-left css-myIssues">
+    <!--Ajout IMAGE -->
+    <div class="item">
+      <form method="post" action="reception.php" enctype="multipart/form-data">
+        <label for="mon_fichier">UPLOADER IMG (max. 1 Mo) :</label><br />
+        <input type="file" name="mon_fichier" id="mon_fichier" /><br />
+      </form>
+    </div>
 
-          <img ng-src="{{ issue.imageUrl }}">
-          <h2>{{ issue.issueType.name }}</h2>
-          <p>{{ issue.issueType.description }}</p>
-          <h5>{{ issue.owner.name }}</h5>
-          <h5>{{ issue.createdOn }}</h5>
-        </a>
+    <!--Ajout Description -->
+    <div class="item new-description-issue">
+       <p>
+        Descritpion : blalbalbla{{ issue.description }}
+      </p>
+    </div>
 
-    
+    <!--Ajout MAP -->
+    <div class="item issue-map">
+      ICI s'affiche normalement la map
+      <leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>
+    </div>
+
+     <!-- SEARCH CREATE -->
+    <button type="button" class="button-positive" ng-click="filterIssues()"><h6>CREATE ISSUE</h6></button>
+
   </ion-content>
 </ion-view>
