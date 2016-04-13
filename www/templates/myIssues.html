@@ -10,9 +10,23 @@
       <button type="button" class="button icon ion-star button-favory">My Issues</button>
     </a>
   </ion-nav-buttons>
-    
-    <!-- Recuperation des données -->
-  	<ion-content ng-controller="MyIssuesCtrl">
+
+      
+    <ion-content ng-controller="MyIssuesCtrl">
+
+    <!-- Affichage de deux boutons pour VISUAL LIST/MAP -->
+    <div ng-controller="AppCtrl">
+      <div class=" button-bar">
+        <button class="button button-light button-android" ng-class="{ 'button\-positive': demo == 'ios' }" ng-click="setPlatform('ios')">
+          Visual List
+        </button>
+        <button class="button button-light button-android" ng-class="{ 'button\-positive': demo == 'ionic' }" ng-click="setPlatform('ionic')">
+          Visual Map
+        </button>
+      </div>
+
+      
+      <!-- Recuperation des données -->
       <a class="list">
         
         <a ng-repeat="issue in issues" 
@@ -28,6 +42,12 @@
               <h4>Status</h4>
               <p>{{ issue.state }}<p>
           </button>
+          
+          <!-- bouton visible que lors staff pour editer le status -->
+          <div class="item" ng-model="isStaff" ng-init="isStaff=false">
+            <button class="button button-positive" ng-if="isStaff">edit</button>
+            <p>{{ issue.edit }}<p> 
+          </div>
         </a>
 
         <!-- Bouton pour créer une nouvelle Issue qui ramène vers la page NewIssue-->

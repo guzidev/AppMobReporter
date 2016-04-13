@@ -68,6 +68,25 @@
 	margin-right:5%;
 }
 
+/* Issue Detail*/ 
+.img-issueDetail{
+	width: 45%;
+	float: right;
+	margin-top: -10%;
+}
+.author-date-assign {
+		margin-top: 10%;
+}
+.author-date-assign p{
+		margin-top: 5%;
+}
+.description-issue p{
+	white-space: normal;
+
+}
+
+
+
 
 /* tutorial*/ 
 body {

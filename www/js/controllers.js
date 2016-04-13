@@ -323,5 +323,58 @@ angular.module('citizen-engagement.controllers', [])
 }
 })
 
+/** CONTROLER Acordeon pour Commentaire  **/
+/* Controler pour balise acordéon pour les commentaires de la page Detail Issue */
+/*       */
+
+.controller('controlerAccordeon', function($scope) {
+  $scope.groups = [];
+  for (var i=0; i<1; i++) {
+    $scope.groups[i] = {
+      name: i,
+      items: []
+    };
+    for (var j=0; j<4; j++) {
+      $scope.groups[i].items.push(i + '-' + j);
+    }
+  }
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+})
+
+
+/** CONTROLER Popover affichage de buttons  **/
+/* Controler Popover qui permet d'afficher  */
+/* deux boutons qui permettent la visualisation soit par list soit par map */
+.controller('AppCtrl', function($scope, $ionicPopover) {
+
+  $ionicPopover.fromTemplateUrl('templates/issueList.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+  $scope.demo = 'ios';
+  $scope.setPlatform = function(p) {
+    document.body.classList.remove('platform-ios');
+    document.body.classList.remove('platform-android');
+    document.body.classList.add('platform-' + p);
+    $scope.demo = p;
+  }
+
+});
+
 //end
 ;
