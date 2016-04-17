@@ -1,4 +1,5 @@
-<ion-view view-title="Issue home">
+<ion-view view-title="Home">
+
 
   <ion-nav-buttons side="primary">
       <a href="#/tab/home">
@@ -18,13 +19,60 @@
     <button class="button button-clear button-positive">Edit</button>
   </div>
 
+
+   <!-- bouton HOME -->
+  <ion-content class="home-content">
+
+  <div class="row row-boutton">
+    <div class="col btn">
+      <a href="#/tab/newIssue"> 
+        <button class="button button_1 ">
+            <img src="img/Reporter_CreateIssue.png"/>
+             <p>Create Issue</p>
+        </button>
+      </a>
+    </div>
+    <div class="col btn">
+      <a href="#/tab/searchIssues"> 
+        <button class="button button_1 ">
+            <img src="img/Reporter_search.png"/>
+             <p>Search Issue</p>
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="row row-boutton2">
+    <div class="col btn">
+      <a href="#/tab/issueList"> 
+        <button class="button button_1 ">
+            <img src="img/Reporter_AllIssues.png"/>
+             <p>All Issue</p>
+        </button>
+      </a>
+    </div>
+    <div class="col btn">
+      <a href="#/tab/myIssues"> 
+        <button class="button button_1 ">
+            <img src="img/Reporter_MyIssue.png"/>
+             <p>My Issue</p>
+        </button>
+      </a>
+    </div>
+  </div>
+
+
+  </ion-content>
+
+
+<!--
   <ion-content class="home-content">
    
     <a href="#/tab/newIssue"
        class="item item-thumbnail-left"> 
       <div class="btn1"> 
-        <button class="button  ">
-          <img src="img/ionic.png"/>
+        <button class="button button_1 ">
+          <img src="img/Reporter_CreateIssue.png"/>
         </button>
         <li> 
           <p>Create Issue</p>
@@ -36,7 +84,7 @@
        class="item item-thumbnail-left"> 
       <div class="btn2"> 
         <button class="button">
-          <img src="img/ionic.png"/>
+          <img src="img/Reporter_search.png"/>
           <li> 
             <p>Search Issue</p>
           </li>
@@ -48,7 +96,7 @@
        class="item item-thumbnail-right"> 
       <div class="btn3"> 
         <button class="button">
-          <img src="img/ionic.png"/>
+          <img src="img/Reporter_MyIssue.png"/>
           <li> 
             <p>My Issue</p>
           </li>
@@ -60,7 +108,7 @@
        class="item item-thumbnail-left"> 
       <div class="btn4"> 
         <button class="button">
-          <img src="img/ionic.png"/>
+          <img src="img/Reporter_AllIssues.png"/>
           <li> 
             <p>All Issue</p>
           </li>
@@ -70,6 +118,6 @@
 
 
   </ion-content>
-
+-->
     
 </ion-view>

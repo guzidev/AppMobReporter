@@ -1,5 +1,7 @@
 /* Empty. Add your own CSS if you like */
 
+
+
 .css-myIssues h4 {
 	margin: 3% 4% 1% 4%;
 }
@@ -8,65 +10,52 @@
 }
 /* Bouton HEADER */ 
 
-
-
+/* Page LOGIN */ 
+.login-item .item-body p{
+	text-align: center;
+}
 
 
 /* Page HOME */ 
 
-/* HOME : Bouton header; */ 
-
-.button_Logout button a{
-	font-size: 1px;
-}
 
 .home-content{
 	margin-top: 0%;
-	text-align: center;
+	/*text-align: center;*/
 	display: inline;
 	list-style-type :none;
 }
-
-
-.btn1 {
-	float:left;
-	background-color: red;
-	width: 30%;
-	margin-top:5%;
-	margin-left:5%;
+.button_1{
+	background-color: white;
 }
+
 /*
-.btn1 img{
-	margin-left: 15%;
-	margin-right: 0%;
-	padding-left: 0%;
-	padding-right: 0%;
+.btn {
+	float:right;
 	width: 70%;
+	margin-top:10%;
+	margin-left:0%;
 }
 */
-.btn2 {
-	float:right;
-	background-color: yellow;
-	width: 30%;
-	margin-top:5%;
-	margin-right:5%;
+
+.btn img{
+	margin-left: 15%;
+	padding-left: 0%;
+	padding-right: 0%;
+	width: 65%;
+}
+.row-boutton{
+	margin-top: 30%;
+	margin-bottom: 15%;
 }
 
-.btn3 {
-	float:left;
-	background-color: yellow;
-	width: 30%;
-	margin-top:5%;
-	margin-right:5%;
+.home-content p {
+	margin-top: -10%;
+	font-size: 0.9em;
+	margin-left: 15%;
 }
 
-.btn4 {
-	float:right;
-	background-color: yellow;
-	width: 30%;
-	margin-top:5%;
-	margin-right:5%;
-}
+
 
 /* Issue Detail*/ 
 .img-issueDetail{

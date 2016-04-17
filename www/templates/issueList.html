@@ -1,6 +1,6 @@
-<ion-view view-title="Issue List">
+<ion-view view-title="IssueList">
    
-   <!-- Bouton sur le header-->
+   <!-- Bouton header-->
   <ion-nav-buttons side="primary">
       <a href="#/tab/home">
         <button type="button" class="button icon ion-home button-HOME"></button>
@@ -26,9 +26,9 @@
     </ui-select-choices>
   </ui-select>
   -->
-    
+
     <!-- Affichage de deux boutons pour VISUAL LIST/MAP -->
-    <div ng-controller="AppCtrl">
+    <div ng-controller="AppCtrl" scroll="false">
       <div class=" button-bar">
         <button class="button button-light button-android" ng-class="{ 'button\-positive': demo == 'ios' }" ng-click="setPlatform('ios')">
           Visual List
@@ -40,6 +40,7 @@
 
       <!-- Trie par Auteur ascendant / descendant et par Date -->
       <ul class="list">  
+        trier ascendant / descandant
         <li class="item item-toggle">
         Author
           <label class="toggle toggle-assertive">
@@ -86,8 +87,6 @@
  
         </a>
       </a>
-
-      ng-model="isStaff"
 
     <!--Methode de rafraichissement de la page  -->  
     <ion-refresher on-refresh="doRefresh()">              
