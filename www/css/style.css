@@ -55,6 +55,11 @@
 	margin-left: 15%;
 }
 
+/* Page NEW ISSUE */ 
+.issue-map{
+	padding-top: 80%;
+
+}
 
 
 /* Issue Detail*/ 
@@ -73,7 +78,9 @@
 	white-space: normal;
 
 }
-
+.issue-map-detail{
+	padding-top: 20%;
+}
 
 
 

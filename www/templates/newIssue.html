@@ -17,28 +17,27 @@
      <div class="list">
       <label class="item item-input item-select">
         <div class="input-label">
-          Selectionner le type
+          <p>Selectionner le type</p>
         </div>
         <select>
-          <option>TYPE1</option>
-          <option selected>TYPE2</option>
+          <option>Broken Light</option>
+          <option selected>Devil Road</option>
           <option>TYPE3</option>
         </select>
       </label>
   </div>
     
-    <!--Ajout IMAGE -->
-    <div class="item">
-      <form method="post" action="reception.php" enctype="multipart/form-data">
-        <label for="mon_fichier">UPLOADER IMG (max. 1 Mo) :</label><br />
-        <input type="file" name="mon_fichier" id="mon_fichier" /><br />
-      </form>
+    <!--Prendre une photo -->
+    <div class="col-50">
+      <button type="button"class="button button-positive">
+        Prendre une photo
+      </button>
     </div>
 
     <!--Ajout Description -->
-    <div class="list">
+    <div class=>
       <div class="item item-input-inset">
-        <p>Descritpion : ajouter une courte déscription</p>
+        <p>Descritpion : </p>
         <label class="item-input-wrapper">
           <input type="text" placeholder="déscription">
         </label>
@@ -46,13 +45,15 @@
     </div>
 
     <!--Ajout MAP -->
+   <p>Ajouter le lieu de l'incident</p>
     <div class="item issue-map">
-      ICI s'affiche normalement la map
-      <leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>
+      <ion-content scroll="false">
+        <leaflet defaults="mapDefaults" center="mapCenter" markers="mapMarkers" height="100%" data-tap-disabled="true"></leaflet>
+      </ion-content>
     </div>
 
      <!-- CREATE -->
-     <button type="button"class="button button-small" ng-click="filterIssues()">
+     <button type="button"class="button col button-positive" ng-click="filterIssues()">
         Create Issue
       </button>
 
