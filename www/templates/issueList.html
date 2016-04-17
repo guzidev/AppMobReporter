@@ -12,21 +12,22 @@
     </a>
   </ion-nav-buttons>
 
-   
+
  <ion-content ng-controller="IssuesCtrl">
-    <!-- Test "multiple search" field 
-    <ui-select multiple ng-model="issueType.id" ng-disabled="ctrl.disabled" sortable="true" close-on-select="false">
-    <ui-select-match placeholder="Select issue...">{{ $item.name }} &lt;{{ $item.description }}&gt;</ui-select-match>
-    <ui-select-choices repeat="issue in issues | propsFilter: {name: $select.search, description: $select.search}">
-      <div ng-bind-html="issue.issueType.name | highlight: $select.search"></div>
-      <small>
-        name: {{ issue.name}}
-        description: <span ng-bind-html="''+issue.description | highlight: $select.search"></span>
-      </small>
+
+    <!-- Test "multiple search" field -->
+    <ui-select multiple ng-model="selectedIssueTypes" ng-disabled="ctrl.disabled" sortable="true" close-on-select="false">
+    <ui-select-match placeholder="Select issue type...">{{$item.name}}</ui-select-match>
+    <ui-select-choices repeat="type in issueTypes">
+      <div ng-bind-html="type.name | highlight: $select.search"></div>
     </ui-select-choices>
   </ui-select>
+<<<<<<< HEAD
   -->
 
+=======
+    
+>>>>>>> 693869858acb9820a26c4e093db67beaa5a8e75a
     <!-- Affichage de deux boutons pour VISUAL LIST/MAP -->
     <div ng-controller="AppCtrl" scroll="false">
       <div class=" button-bar">

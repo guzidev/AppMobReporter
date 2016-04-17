@@ -11,7 +11,7 @@ angular.module('citizen-engagement.controllers', [])
  * - [TO DO] extract and extract all $http calls from individual controllers
  */
 
-.controller("AnyController", function(CameraService) {
+.controller("PhotoController", function(CameraService) {
     CameraService.getPicture({
         quality: 75,
         targetWidth: 400,
@@ -107,15 +107,24 @@ angular.module('citizen-engagement.controllers', [])
         $scope.issues = issues;
     });
 
+    $http({
+        method: 'GET',
+        url: apiUrl + '/issueTypes',
+        headers: {
+        // insert here if ...          
+        }
+    })
+    .success(function(issueTypes) {
+        $scope.issueTypes = issueTypes;
+    });
+
     var counter = 1;
 
     // Gestion du Pull refresh 
-    //.controller('MyCtrl', function($scope, $timeout) {
-    //$scope.items = ['Item 1', 'Item 2', 'Item 3'];
-    //http://codepen.io/ionic/pen/mqolp
+    // TO DO - replace with "infinite scroll"
     $scope.doRefresh = function() {
         
-        console.log('Refreshing!');
+        console.log('Refreshing!' + counter);
         $timeout( function() {
                                 $http({
                                     method: 'GET',
@@ -135,7 +144,6 @@ angular.module('citizen-engagement.controllers', [])
 
           //Stop the ion-refresher from spinning
           $scope.$broadcast('scroll.refreshComplete');
-        
         }, 1000);
       
     };
@@ -273,7 +281,7 @@ angular.module('citizen-engagement.controllers', [])
     // pour la requête utilise : $in de mongoDB
 
     $scope.filterIssues = function() {
-        console.log($scope);
+        
         // Show a loading message if the request takes too long.
         $ionicLoading.show({
         template: 'Retrieving data...',
@@ -289,8 +297,13 @@ angular.module('citizen-engagement.controllers', [])
             },
             data: {
                 //'_issueType': '5703a17eaa8d790e00546b94'
-                 '_issueType': $scope.issueType.id
+                '_issueType': $scope.issueType.id,
+                //'_assignee': '5703a17eaa8d790e00546b8f',
+
                 // TO DO : continue filtering criteria
+                //'state': 'in_progress'
+                // { "tags": { "$in": ["Etiam" ] } }
+
             }
     }).then(
         function(issues) {
