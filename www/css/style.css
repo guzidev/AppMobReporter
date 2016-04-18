@@ -58,8 +58,41 @@
 /* Page NEW ISSUE */ 
 .issue-map{
 	padding-top: 80%;
-
 }
+
+/* ISSUE LIST*/ 
+.bouton-issueList button{
+	padding: 5px;
+}
+.item-toggle .toggle{
+	right: 120px;
+}
+.buttonIssueList {
+	line-height: 18px;
+	right:-60%;
+	margin-top: -60px;
+}
+.buttonIssueList p{
+	font-size: 0.75em;
+}
+.buttonIssueList h4{
+	font-size: 0.9em;
+}
+
+
+/* MY ISSUE LIST*/ 
+.buttonMyIssue{
+	line-height: 18px;
+	right:-60%;
+	margin-top: -60px;
+}
+.buttonMyIssue p{
+	font-size: 0.75em;
+}
+.buttonMyIssue h4{
+	font-size: 0.9em;
+}
+
 
 
 /* Issue Detail*/ 
@@ -69,9 +102,6 @@
 	margin-top: -10%;
 }
 .author-date-assign {
-		margin-top: 10%;
-}
-.author-date-assign p{
 		margin-top: 5%;
 }
 .description-issue p{
@@ -81,6 +111,7 @@
 .issue-map-detail{
 	padding-top: 20%;
 }
+.
 
 
 

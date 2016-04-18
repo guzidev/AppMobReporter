@@ -27,7 +27,7 @@
 
     <!-- Affichage de deux boutons pour VISUAL LIST/MAP -->
     <div ng-controller="AppCtrl" scroll="false">
-      <div class=" button-bar">
+      <div class=" button-bar bouton-issueList">
         <button class="button button-light button-android" ng-class="{ 'button\-positive': demo == 'ios' }" ng-click="setPlatform('ios')">
           Visual List
         </button>
@@ -36,11 +36,11 @@
         </button>
       </div>
 
-      <!-- Trie par Auteur ascendant / descendant et par Date -->
+    <!-- Trie par Auteur ascendant / descendant et par Date -->
       <ul class="list">  
         trier ascendant / descandant
         <li class="item item-toggle">
-        Author
+        Author : 
           <label class="toggle toggle-assertive">
             <input type="checkbox">
             <div class="track">
@@ -59,29 +59,34 @@
         </li>
       </ul>
 
+    <!-- search button -->
+    <button type="button"class="button col button-positive" ng-click="filterIssues()">
+        Search
+      </button>
+
     <!-- Recuperation des données -->
-    <a class="list">
+    <a class=" css-AllIssues">
  
         <a ng-repeat="issue in issues" 
            href="#/tab/issueDetails/{{issue.id}}"
-           class="item item-thumbnail-left css-AllIssues">
+           class="item item-thumbnail-left">
 
           <img ng-src="{{ issue.imageUrl }}">
           <h2>{{ issue.issueType.name }}</h2>
           <p>{{ issue.issueType.description }}</p>
-          <h5>{{ issue.owner.name }}</h5>
-          <h5>{{ issue.createdOn }}</h5>
-          <button class="button button-positive">
+          <h5>créer par :{{ issue.owner.name }}</h5>
+          <h5>{{ issue.createdOn | date:'dd-MM-yyyy'}}</h5>
+          <button class="button icon-right button-calm buttonIssueList">
               <h4>Status</h4>
               <p>{{ issue.state }}<p>
           </button>
           
           <!-- bouton visible que lors staff pour editer le status -->
-          <div class="item" ng-model="isStaff" ng-init="isStaff=false">
+          <!--<div class="item" ng-model="isStaff" ng-init="isStaff=false">
             <button class="button button-positive" ng-if="isStaff">edit</button>
             <p>{{ issue.edit }}<p> 
           </div>
-
+        -->
  
         </a>
       </a>
@@ -89,13 +94,6 @@
     <!--Methode de rafraichissement de la page  -->  
     <ion-refresher on-refresh="doRefresh()">              
     </ion-refresher>
-
-    <!-- search button -->
-    <label class="item item-input">
-      <input type="text" placeholder="Issue Type" ng-model="issueType.id" required="required"/>
-    </label>
-    <button type="button" class="button-positive" ng-click="filterIssues()"><h6>Search</h6></button>
-
 
   </ion-content>
 </ion-view>
